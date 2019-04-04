@@ -38,7 +38,7 @@ GraphPanel::GraphPanel(QWidget *parent) :
     for(int i=0;i<(int)series.size();i++) {
         axisY[i] = new QValueAxis;
         axisY[i]->setTickCount(12);
-        axisY[i]->setLinePenColor(i==0?Qt::red:Qt::blue);
+        axisY[i]->setLinePenColor(i==0?Qt::gray:Qt::darkCyan);
         axisY[i]->setMin(-80);
         axisY[i]->setMax(30);
         chart->addAxis(axisY[i], i==0?Qt::AlignLeft:Qt::AlignRight);

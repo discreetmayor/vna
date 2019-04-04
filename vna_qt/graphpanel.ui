@@ -53,7 +53,7 @@
       <item>
        <widget class="QComboBox" name="d1">
         <property name="styleSheet">
-         <string notr="true">color: red</string>
+         <string notr="true">color: grey</string>
         </property>
         <item>
          <property name="text">
@@ -120,7 +120,7 @@
       <item>
        <widget class="QComboBox" name="d2">
         <property name="styleSheet">
-         <string notr="true">color: blue</string>
+         <string notr="true">color: darkCyan</string>
         </property>
         <item>
          <property name="text">

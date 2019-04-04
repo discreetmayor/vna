@@ -51,6 +51,7 @@ MainWindow::MainWindow(QWidget *parent) :
     vna = new VNADevice();
     polarView = new PolarView();
     impdisp = new ImpedanceDisplay();
+    
     timer = new QTimer();
 
     nv.init(ui->w_bottom->layout());
@@ -122,9 +123,9 @@ void MainWindow::loadSettings() {
     nv.graphLimits = {
         {-1000,-999, 12},
         {-70, 30, 10},      //TYPE_MAG=1
+        {1, 11, 10},        //TYPE_SWR
         {-180, 180, 10},    //TYPE_PHASE
         {0, 50, 10},        //TYPE_GRPDELAY
-        {1, 11, 10},        //TYPE_SWR
         {-1000,-999, 10}    //TYPE_COMPLEX
     };
 }
@@ -249,8 +250,16 @@ void MainWindow::updateSweepParams() {
 
 void MainWindow::updateValueDisplays() {
     int freqIndex = nv.markers.at(0).freqIndex;
-    if(curCal) impdisp->setValue(nv.values.at(freqIndex)(0,0), vna->freqAt(freqIndex));
-    else impdisp->clearValue();
+    if(curCal) {
+        impdisp->setValue(nv.values.at(freqIndex)(0,0), vna->freqAt(freqIndex));
+        // match->setValue(nv.values.at(freqIndex)(0,0), vna->freqAt(freqIndex));
+        // cout << "Shunt C1: " << match->c1 << "\n";
+        // cout << "Series L1: " << match->l1 << "\n";
+        // cout << "Shunt C2: " << match->c2 << "\n";
+        // cout << "Series L2: " << match->l2 << "\n";
+    } else {
+        impdisp->clearValue();
+    }
 }
 
 
@@ -535,7 +544,6 @@ void MainWindow::on_d_caltype_currentIndexChanged(int index) {
 
 void MainWindow::btn_measure_click(QPushButton *btn) {
     string name = btn->toolTip().toStdString();
-    cout << name << endl;
     ui->dock_cal_contents->setEnabled(false);
     vna->takeMeasurement([this,name](const vector<VNARawValue>& vals){
         calMeasurements[name] = vals;

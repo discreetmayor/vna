@@ -43,6 +43,7 @@ SOURCES +=\
     main.C \
     markerslider.C \
     impedancedisplay.C \
+    match.C \
     frequencydialog.C \
     graphpanel.C \
     configureviewdialog.C \
@@ -57,6 +58,7 @@ HEADERS  += \
     mainwindow.H \
     markerslider.H \
     impedancedisplay.H \
+    match.H \
     utility.H \
     frequencydialog.H \
     graphpanel.H \
@@ -70,6 +72,7 @@ HEADERS  += \
 FORMS    += mainwindow.ui \
     markerslider.ui \
     impedancedisplay.ui \
+    match.ui \
     frequencydialog.ui \
     graphpanel.ui \
     configureviewdialog.ui \

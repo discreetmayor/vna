@@ -2,6 +2,7 @@
 #define IMPEDANCEDISPLAY_H
 
 #include <QWidget>
+#include "match.H"
 #include <complex>
 
 using namespace std;
@@ -22,6 +23,7 @@ public:
 
 private:
     Ui::ImpedanceDisplay *ui;
+    Match* match=NULL;
 };
 
 #endif // IMPEDANCEDISPLAY_H

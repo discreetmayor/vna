@@ -18,6 +18,7 @@ class QWidget;
 class QPushButton;
 class PolarView;
 class ImpedanceDisplay;
+class Match;
 class GraphPanel;
 
 namespace QtCharts {

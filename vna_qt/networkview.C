@@ -23,9 +23,9 @@ NetworkView::NetworkView() {
     graphLimits = {
         {-1000,-999, 12},
         {-80, 30, 11},      //TYPE_MAG=1
+        {1, 11, 10},        //TYPE_SWR
         {-180, 180, 12},    //TYPE_PHASE
         {0, 50, 10},        //TYPE_GRPDELAY
-        {1, 11, 10},        //TYPE_SWR
         {-1000,-999, 10}    //TYPE_COMPLEX  
     };
 }
@@ -68,7 +68,7 @@ GraphPanel* NetworkView::createGraphView(bool freqDomain, bool tr) {
             QScatterSeries* markerSeries = new QScatterSeries();
             gp->chart->addSeries(markerSeries);
             markerSeries->setPointsVisible(true);
-            markerSeries->setPen(QPen(QColor(0,200,0),2.));
+            markerSeries->setPen(QPen(Qt::red,2.));
             markerSeries->setBrush(Qt::transparent);
             markerSeries->setMarkerSize(6.);
             markerSeries->attachAxis(gp->axisX);
@@ -89,7 +89,7 @@ GraphPanel* NetworkView::createGraphView(bool freqDomain, bool tr) {
         updateYAxis(curViews.at(index));
         updateMarkerViews();
     });
-    gp->comboBox(0)->setCurrentIndex(2);
+    gp->comboBox(0)->setCurrentIndex(4);
     gp->comboBox(1)->setCurrentIndex(0);
 
     return gp;

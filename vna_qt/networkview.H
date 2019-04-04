@@ -25,9 +25,9 @@ struct SParamViewSource {
     enum Types {
         UNDEFINED=0,
         TYPE_MAG=1,     // view must be QLineSeries
+        TYPE_SWR,       // view must be QLineSeries
         TYPE_PHASE,     // view must be QLineSeries
         TYPE_GRPDELAY,  // view must be QLineSeries
-        TYPE_SWR,       // view must be QLineSeries
         TYPE_COMPLEX,   // view must be PolarView
         _LAST
     } type;
